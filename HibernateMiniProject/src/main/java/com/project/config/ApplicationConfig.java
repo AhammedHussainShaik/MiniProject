@@ -48,14 +48,16 @@ public class ApplicationConfig {
 		hibernateTemplate.setSessionFactory(sessionFactoryBean().getObject());
 		return hibernateTemplate;
 	}
-
+// for Hibernate Properties
 	public Properties getProperties() {
 		Properties properties=new Properties();
+		
 		properties.put("hibernate.dialect", environment.getProperty("orm.dialect"));
 		properties.put("hibernate.show_sql", environment.getProperty("orm.show_sql"));
 		properties.put("hibernate.format_sql", environment.getProperty("orm.format_sql"));
 		properties.put("hibernate.hbm2ddla.auto", environment.getProperty("orm.ddlauto"));
-		return null;
+		
+		return properties;
 	}
 
 }

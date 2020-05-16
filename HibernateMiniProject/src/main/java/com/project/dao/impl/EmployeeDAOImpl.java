@@ -38,4 +38,10 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 		return hibernateTemplate.loadAll(Employee.class);
 	}
 
+	@Override
+	public Employee getOneEmployee(Integer id) {
+		// TODO Auto-generated method stub
+		return hibernateTemplate.get(Employee.class,id);
+	}
+
 }

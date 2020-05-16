@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.project.models.Employee;
+
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -25,8 +27,8 @@ public class ApplicationDBConfig {
 
 		dataSource.setDriverClassName(environment.getProperty("db.driver"));
 		dataSource.setUrl(environment.getProperty("db.url"));
-		dataSource.setUsername(environment.getProperty("db.username"));
-		dataSource.setPassword(environment.getProperty("db.password"));
+		dataSource.setUsername(environment.getProperty("db.user"));
+		dataSource.setPassword(environment.getProperty("db.pwd"));
 
 		return dataSource;
 	}
@@ -36,7 +38,7 @@ public class ApplicationDBConfig {
 		LocalSessionFactoryBean factoryBean=new LocalSessionFactoryBean();
 
 		factoryBean.setDataSource(dataSource());
-		//factoryBean.setAnnotatedClasses(Employee.class);
+		factoryBean.setAnnotatedClasses(Employee.class);
 		factoryBean.setHibernateProperties(getProperties());
 
 		return factoryBean;
@@ -53,9 +55,9 @@ public class ApplicationDBConfig {
 		Properties properties=new Properties();
 		
 		properties.put("hibernate.dialect", environment.getProperty("orm.dialect"));
-		properties.put("hibernate.show_sql", environment.getProperty("orm.show_sql"));
-		properties.put("hibernate.format_sql", environment.getProperty("orm.format_sql"));
-		properties.put("hibernate.hbm2ddla.auto", environment.getProperty("orm.ddlauto"));
+		properties.put("hibernate.show_sql", environment.getProperty("orm.showsql"));
+		properties.put("hibernate.format_sql", environment.getProperty("orm.fmtsql"));
+		properties.put("hibernate.hbm2ddl.auto", environment.getProperty("orm.ddlauto"));
 		
 		return properties;
 	}

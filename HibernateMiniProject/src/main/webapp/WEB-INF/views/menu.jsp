@@ -17,7 +17,7 @@
           <a class="dropdown-item" href="registerpage">Register Employee</a>
           <a class="dropdown-item" href="#">Edit Employee</a>
           <a class="dropdown-item" href="#">Delete Employee</a>
-          <a class="dropdown-item" href="#">Show All Employees</a>
+          <a class="dropdown-item" href="showAllEmp">Show All Employees</a>
         </div>
       </li>
     </ul>

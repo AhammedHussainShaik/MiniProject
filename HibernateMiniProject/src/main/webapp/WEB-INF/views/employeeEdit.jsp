@@ -5,17 +5,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register Page</title>
+<title>Edit Page</title>
 </head>
 <body>
 	<%@include file="menu.jsp"%>
 	<div class="container">
 		<div class="card">
 			<div class="card-header bg-info text-white">
-				<h3>Welcome Employee Register Page</h3>
+				<h3>Welcome Employee Edit Page</h3>
 			</div>
 			<div class="card-body">
-				<form:form action="saveEmp" method="POST" modelAttribute="employee">
+				<form:form action="updateEmp" method="POST" modelAttribute="employee">
+				   <form:hidden path="empId"/>
 					<div class="row" style="padding: 10px;">
 						<div class="col-4">Employee Name :</div>
 						<div class="col-4">
@@ -41,7 +42,7 @@
 					</div>
 					<div class="row" style="padding: 10px;">
 						<div class="col-4">
-							<input type="submit" value="Register" class="btn btn-success">
+							<input type="submit" value="Update" class="btn btn-success">
 						</div>
 
 					</div>

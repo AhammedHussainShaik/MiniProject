@@ -9,6 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -50,6 +51,13 @@ public class ApplicationDBConfig {
 		hibernateTemplate.setSessionFactory(sessionFactoryBean().getObject());
 		return hibernateTemplate;
 	}
+	@Bean
+	public HibernateTransactionManager getTransactionManager() {
+		HibernateTransactionManager transactionManager=new HibernateTransactionManager();
+		transactionManager.setSessionFactory(sessionFactoryBean().getObject());
+		return transactionManager;
+	}
+	
 // for Hibernate Properties
 	public Properties getProperties() {
 		Properties properties=new Properties();
